@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="AtlasTexture"
+uid="uid://b0ghmymmdilq5"
+path="res://.godot/imported/basic_tiles.aseprite-ce3cdc1bfc564298b65b155d90b52824.res"
+
+[deps]
+
+source_file="res://assets/env/basic_tiles.aseprite"
+dest_files=["res://.godot/imported/basic_tiles.aseprite-ce3cdc1bfc564298b65b155d90b52824.res"]
+
+[params]
+
+exclude_layers_pattern=""
+only_visible_layers=false

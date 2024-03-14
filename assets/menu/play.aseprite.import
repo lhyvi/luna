@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="AtlasTexture"
+uid="uid://cv3nghwfxmfwr"
+path="res://.godot/imported/play.aseprite-a00edcfcf092d6ae2a1b3a98ee3a2cd5.res"
+
+[deps]
+
+source_file="res://assets/menu/play.aseprite"
+dest_files=["res://.godot/imported/play.aseprite-a00edcfcf092d6ae2a1b3a98ee3a2cd5.res"]
+
+[params]
+
+exclude_layers_pattern=""
+only_visible_layers=false

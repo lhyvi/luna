@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://co2v7olub3f8g"]
+
+[ext_resource type="Script" path="res://scripts/narration.gd" id="1_3a5rr"]
+
+[node name="Narration" type="RichTextLabel"]
+offset_right = 200.0
+offset_bottom = 200.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+theme_override_font_sizes/italics_font_size = 16
+theme_override_font_sizes/bold_italics_font_size = 16
+theme_override_font_sizes/mono_font_size = 16
+bbcode_enabled = true
+text = "TEST"
+scroll_active = false
+autowrap_mode = 0
+script = ExtResource("1_3a5rr")

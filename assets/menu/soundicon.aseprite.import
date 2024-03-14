@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="AtlasTexture"
+uid="uid://brwyrha8j311j"
+path="res://.godot/imported/soundicon.aseprite-7da6816b587976b69794ad03ca612494.res"
+
+[deps]
+
+source_file="res://assets/menu/soundicon.aseprite"
+dest_files=["res://.godot/imported/soundicon.aseprite-7da6816b587976b69794ad03ca612494.res"]
+
+[params]
+
+exclude_layers_pattern=""
+only_visible_layers=false

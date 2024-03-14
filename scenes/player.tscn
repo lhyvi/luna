@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://f8t2hvaf7ue1"]
+
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_ooslk"]
+[ext_resource type="Script" path="res://scripts/player/player_state_manager.gd" id="2_e7742"]
+[ext_resource type="SpriteFrames" uid="uid://cbae6qk6patmq" path="res://assets/player/cat.aseprite" id="3_rywka"]
+[ext_resource type="Texture2D" uid="uid://clfhiodrg7pyx" path="res://assets/player/player.aseprite" id="4_utfus"]
+[ext_resource type="Script" path="res://scripts/env/camera_bounds_checker.gd" id="5_grnn1"]
+[ext_resource type="AudioStream" uid="uid://pgye8hhwcp3m" path="res://assets/audio/jump.wav" id="6_gunqb"]
+[ext_resource type="AudioStream" uid="uid://cljngwc88h3xi" path="res://assets/audio/step.wav" id="7_o7eom"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iytcp"]
+size = Vector2(16, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_d7fpw"]
+polygon = PackedVector2Array(-4, 1, 4, 1, 0, 4)
+
+[node name="Player" type="CharacterBody2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(29, 160)
+collision_layer = 2
+script = ExtResource("1_ooslk")
+speed = 64.0
+jump_height = 38.0
+
+[node name="PlayerStateManager" type="Node2D" parent="."]
+script = ExtResource("2_e7742")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_iytcp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("3_rywka")
+animation = &"Standing"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_utfus")
+
+[node name="CameraBoundsChecker" type="Area2D" parent="."]
+script = ExtResource("5_grnn1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraBoundsChecker"]
+shape = SubResource("RectangleShape2D_iytcp")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="JumpAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_gunqb")
+volume_db = -8.0
+pitch_scale = 2.0
+bus = &"SFX"
+
+[node name="StepAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_o7eom")
+volume_db = -8.0
+pitch_scale = 1.95
+bus = &"SFX"
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_d7fpw")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

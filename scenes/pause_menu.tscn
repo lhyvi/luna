@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhsflfjd7it64"]
+
+[ext_resource type="Script" path="res://scripts/ui/pause_menu.gd" id="1_glqj4"]
+[ext_resource type="AudioStream" uid="uid://bdq0ix7tnb2ks" path="res://assets/audio/4.6.wav" id="2_cgvmm"]
+[ext_resource type="Theme" uid="uid://dardhytj07eaw" path="res://resources/theme.tres" id="3_rs0rm"]
+[ext_resource type="Texture2D" uid="uid://brwyrha8j311j" path="res://assets/menu/soundicon.aseprite" id="4_msll7"]
+
+[node name="Control" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -90.0
+offset_right = 120.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_glqj4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_cgvmm")
+autoplay = true
+bus = &"Music"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 240.0
+offset_bottom = 180.0
+color = Color(0.0235294, 0.207843, 0.709804, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 10.0
+offset_right = 241.0
+offset_bottom = 50.0
+theme = ExtResource("3_rs0rm")
+bbcode_enabled = true
+text = "[center][wave]PAUSE MENU"
+fit_content = true
+
+[node name="MusicSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 163.0
+offset_right = 236.0
+offset_bottom = 179.0
+theme = ExtResource("3_rs0rm")
+value = 100.0
+
+[node name="VolumeSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 151.0
+offset_right = 236.0
+offset_bottom = 167.0
+theme = ExtResource("3_rs0rm")
+value = 100.0
+
+[node name="Soundicon" type="Sprite2D" parent="."]
+position = Vector2(10, 162)
+texture = ExtResource("4_msll7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+process_mode = 3
+position = Vector2(120, 90)

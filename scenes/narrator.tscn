@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://drjqa4ebxxvs0"]
+
+[ext_resource type="Texture2D" uid="uid://cbmnchg6awgdg" path="res://assets/player/player.png" id="1_phrqg"]
+[ext_resource type="Script" path="res://scripts/narrator.gd" id="2_f2k2v"]
+[ext_resource type="PackedScene" uid="uid://co2v7olub3f8g" path="res://scenes/narration.tscn" id="3_sbg41"]
+[ext_resource type="Texture2D" uid="uid://dw4448w8e8xin" path="res://assets/round256.png" id="4_i3j4m"]
+[ext_resource type="AudioStream" uid="uid://bkyykmvmnd08m" path="res://assets/audio/narrator_blip.wav" id="5_1wt46"]
+
+[node name="Node2D" type="Sprite2D"]
+position = Vector2(154, 103)
+texture = ExtResource("1_phrqg")
+script = ExtResource("2_f2k2v")
+narration = ExtResource("3_sbg41")
+narration_offset = Vector2(0, -32)
+narrations = ["Hello Luna", "A and D to Walk"]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.25, 0.25)
+color = Color(0.588235, 0.2, 1, 1)
+energy = 0.58
+shadow_enabled = true
+shadow_filter = 2
+texture = ExtResource("4_i3j4m")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_1wt46")
+volume_db = -8.0
+bus = &"SFX"
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
